@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\AuthorRepository;
 use App\Http\Requests\StoreAuthorRequest;
 use App\Http\Requests\UpdateAuthorRequest;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Response;
 use Exception;
 

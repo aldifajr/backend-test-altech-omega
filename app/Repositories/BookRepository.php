@@ -4,15 +4,24 @@ namespace App\Repositories;
 
 use App\Models\Book;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 use Exception;
 
 class BookRepository
 {
     // Retrieve all books
-    public function all(): Collection
+    public function all(int|null $perPage = 10, int|null $page = 1): Collection | \Illuminate\Contracts\Pagination\LengthAwarePaginator
     {
         try {
-            return Book::all();
+            if($page != null){
+                return Book::paginate($perPage, ['*'], 'page', $page);
+            }else{
+                $books = Cache::remember('books', 60, function () {
+                    return Book::all();
+                });
+
+                return $books;
+            }
         } catch (Exception $e) {
             throw new Exception('Failed to retrieve all books: ' . $e->getMessage());
         }

@@ -7,6 +7,7 @@ use App\Http\Requests\StoreBookRequest;
 use App\Http\Requests\UpdateBookRequest;
 use Illuminate\Http\Response;
 use Exception;
+use Illuminate\Support\Collection;
 
 class BookController extends Controller
 {
@@ -20,11 +21,16 @@ class BookController extends Controller
     // Retrieve a list of all books
     public function index()
     {
-        try {
-            $books = $this->bookRepository->all();
+        $perPage = request()->get('per_page');
+        $page = request()->get('page');
 
-            if ($books->isEmpty()) {
-                return response()->json(['message' => 'No books found'], Response::HTTP_NOT_FOUND);
+        try {
+            $books = $this->bookRepository->all($perPage, $page);
+
+            if($books instanceof Collection){
+                if ($books->isEmpty()) {
+                    return response()->json(['message' => 'No books found'], Response::HTTP_NOT_FOUND);
+                }
             }
 
             return response()->json($books, Response::HTTP_OK);
