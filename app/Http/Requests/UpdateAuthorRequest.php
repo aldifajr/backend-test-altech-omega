@@ -24,9 +24,9 @@ class UpdateAuthorRequest extends FormRequest
         $authorId = $this->route('id'); // Get the ID from the route
 
         return [
-            'name' => 'sometimes|required|string|max:255',
-            'email' => 'sometimes|required|email|unique:authors,email,' . $authorId,
-            'bio' => 'nullable|string',
+            'name' => 'sometimes|required|string|max:100',
+            'birth_date' => 'sometimes|required|date',
+            'bio' => 'nullable|string|max:500',
         ];
     }
 

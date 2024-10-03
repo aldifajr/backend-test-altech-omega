@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id(); // Auto-incrementing primary key
-            $table->string('title'); // Book title
+            $table->string('title', 255); // Book title
             $table->text('description'); // Book description
             $table->date('publish_date');
             $table->unsignedBigInteger('author_id'); // Foreign key to authors table

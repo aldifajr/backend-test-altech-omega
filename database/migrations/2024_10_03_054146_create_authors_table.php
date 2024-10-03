@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('authors', function (Blueprint $table) {
             $table->id(); // Auto-incrementing primary key
-            $table->string('name'); // Author's name
-            $table->string('bio'); 
+            $table->string('name', 100); // Author's name
+            $table->string('bio', 500); 
             $table->date('birth_date');
             $table->timestamps(); // created_at and updated_at columns
         });

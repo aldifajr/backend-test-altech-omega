@@ -27,7 +27,7 @@ class UpdateBookRequest extends FormRequest
             'title' => 'sometimes|required|string|max:255',
             'author_id' => 'sometimes|required|exists:authors,id',
             'description' => 'nullable|string',
-            'published_at' => 'nullable|date',
+            'publish_date' => 'nullable|date',
         ];
     }
 

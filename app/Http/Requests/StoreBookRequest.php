@@ -25,7 +25,7 @@ class StoreBookRequest extends FormRequest
             'title' => 'required|string|max:255',
             'author_id' => 'required|exists:authors,id',
             'description' => 'nullable|string',
-            'published_at' => 'nullable|date',
+            'publish_date' => 'nullable|date',
         ];
     }
     
