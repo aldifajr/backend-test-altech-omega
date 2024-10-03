@@ -6,10 +6,6 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\AuthorController;
 
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
-
 Route::get('/authors', [AuthorController::class, 'index']); // GET /authors
 Route::get('/authors/{id}', [AuthorController::class, 'show']); // GET /authors/{id}
 Route::post('/authors', [AuthorController::class, 'store']); // POST /authors
