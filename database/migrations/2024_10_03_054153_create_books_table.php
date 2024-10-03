@@ -12,8 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('books', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+             $table->id(); // Auto-incrementing primary key
+            $table->string('title'); // Book title
+            $table->text('description'); // Book description
+            $table->unsignedBigInteger('author_id'); // Foreign key to authors table
+            $table->timestamps(); // created_at and updated_at columns
+
+            // Foreign key constraint to reference the authors table
+            $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
         });
     }
 

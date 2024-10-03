@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('authors', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id(); // Auto-incrementing primary key
+            $table->string('name'); // Author's name
+            $table->string('email')->unique(); // Author's email, unique
+            $table->timestamps(); // created_at and updated_at columns
         });
     }
 
