@@ -46,6 +46,7 @@ class AuthorController extends Controller
 
             return response()->json($author, Response::HTTP_OK);
         } catch (Exception $e) {
+            \Log::error('Error retrieving author: '.$e->getMessage()); // Log the error
             return response()->json(['message' => 'Failed to retrieve author', 'error' => $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }

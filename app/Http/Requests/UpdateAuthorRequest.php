@@ -21,8 +21,6 @@ class UpdateAuthorRequest extends FormRequest
      */
     public function rules(): array
     {
-        $authorId = $this->route('id'); // Get the ID from the route
-
         return [
             'name' => 'sometimes|required|string|max:100',
             'birth_date' => 'sometimes|required|date',
