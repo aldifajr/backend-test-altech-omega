@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('authors', function (Blueprint $table) {
             $table->id(); // Auto-incrementing primary key
             $table->string('name'); // Author's name
-            $table->string('email')->unique(); // Author's email, unique
+            $table->string('bio'); 
+            $table->date('birth_date');
             $table->timestamps(); // created_at and updated_at columns
         });
     }
