@@ -6,7 +6,6 @@ use App\Repositories\AuthorRepository;
 use App\Http\Requests\StoreAuthorRequest;
 use App\Http\Requests\UpdateAuthorRequest;
 use Illuminate\Http\Response;
-use Illuminate\Validation\ValidationException; // Import the ValidationException class
 use Exception;
 
 class AuthorController extends Controller
