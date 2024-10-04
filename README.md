@@ -7,7 +7,7 @@ The app also comes with database migrations and seeds to make it easier to revie
 
 ## How to setup the project 
 - Clone the project
-- Type in 'composer install'
+- Type in `composer install`
 - Copy .env.example to a new file .env and update the following mandatory env
 ```
 DB_CONNECTION=
